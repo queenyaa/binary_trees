@@ -71,4 +71,177 @@ This example demonstrates the creation of a binary tree using the `binary_tree_n
 ---
 
 ---
+# Task 1: Insert Left Child into Binary Tree
+=============================================================
+
+## Objective
+The purpose of this task is to implement a function that inserts a node as the left-child of another node in a binary tree. The function is designed to create a new node with a given value and set it as the left-child of the specified parent node. If the parent node already has a left-child, the new node takes its place, and the old left-child becomes the left-child of the new node.
+
+## Function Signature
+```c
+binary_tree_t *binary_tree_insert_left(binary_tree_t *parent, int value);
+```
+
+## Parameters
+- `parent`: A pointer to the node to insert the left-child into.
+- `value`: The value to store in the new node.
+
+## Return Value
+- A pointer to the newly created node.
+- If memory allocation fails or if the parent is NULL, the function returns `NULL`.
+
+## Example Usage
+```c
+binary_tree_t *root;
+
+root = binary_tree_node(NULL, 98);
+root->left = binary_tree_node(root, 12);
+root->right = binary_tree_node(root, 402);
+
+binary_tree_insert_left(root->right, 128);
+binary_tree_insert_left(root, 54);
+```
+
+## Explanation
+This example demonstrates the usage of the `binary_tree_insert_left` function to insert nodes into a binary tree. Nodes with values 128 and 54 are inserted as left-children of specific parent nodes. If the parent already has a left-child, the new node takes its place, and the old left-child becomes the left-child of the new node.
+
+## Notes
+- The function handles dynamic memory allocation for the new node.
+- If memory allocation fails or if the parent is NULL, the function returns `NULL`.
+- The resulting tree structure can be visualized using the provided `binary_tree_print` function or similar visualization methods.
+---
+
+---
+# Task 2: Insert Right Child into Binary Tree
+==================================================
+
+## Objective
+The goal of this task is to implement a function that inserts a node as the right-child of another node in a binary tree. The function creates a new node with a given value and sets it as the right-child of the specified parent node. If the parent node already has a right-child, the new node takes its place, and the old right-child becomes the right-child of the new node.
+
+## Function Signature
+```c
+binary_tree_t *binary_tree_insert_right(binary_tree_t *parent, int value);
+```
+
+## Parameters
+- `parent`: A pointer to the node to insert the right-child into.
+- `value`: The value to store in the new node.
+
+## Return Value
+- A pointer to the newly created node.
+- If memory allocation fails or if the parent is NULL, the function returns `NULL`.
+
+## Example Usage
+```c
+binary_tree_t *root;
+
+root = binary_tree_node(NULL, 98);
+root->left = binary_tree_node(root, 12);
+root->right = binary_tree_node(root, 402);
+
+binary_tree_insert_right(root->left, 54);
+binary_tree_insert_right(root, 128);
+```
+
+## Explanation
+This example demonstrates the usage of the `binary_tree_insert_right` function to insert nodes into a binary tree. Nodes with values 54 and 128 are inserted as right-children of specific parent nodes. If the parent already has a right-child, the new node takes its place, and the old right-child becomes the right-child of the new node.
+
+## Notes
+- The function handles dynamic memory allocation for the new node.
+- If memory allocation fails or if the parent is NULL, the function returns `NULL`.
+- The resulting tree structure can be visualized using the provided `binary_tree_print` function or similar visualization methods.
+---
+
+---
+# Task 3: Delete Binary Tree
+========================================================
+
+## Objective
+The objective of this task is to implement a function that deletes an entire binary tree. The function takes a pointer to the root node of the tree and recursively deletes the entire tree, freeing the memory associated with each node.
+
+## Function Signature
+```c
+void binary_tree_delete(binary_tree_t *tree);
+```
+
+## Parameters
+- `tree`: A pointer to the root node of the tree to delete.
+
+## Behavior
+- If `tree` is `NULL`, the function does nothing.
+- The function recursively deletes the left and right subtrees before freeing the memory of the current node.
+
+## Example Usage
+```c
+binary_tree_t *root;
+
+root = binary_tree_node(NULL, 98);
+root->left = binary_tree_node(root, 12);
+root->right = binary_tree_node(root, 402);
+binary_tree_insert_right(root->left, 54);
+binary_tree_insert_right(root, 128);
+
+binary_tree_delete(root);
+```
+
+## Explanation
+This example demonstrates the usage of the `binary_tree_delete` function to delete an entire binary tree. The function is called with the root node, and it recursively deletes the left and right subtrees before freeing the memory of each node. After the deletion, the tree is effectively removed from memory.
+
+## Notes
+- The function uses a post-order traversal to ensure that child nodes are deleted before their parents.
+- Deleting a tree using this function ensures that all memory allocated for nodes is properly freed.
+- The function is safe to use even if the root node (`tree`) is `NULL`.
+- Ensure that the tree is no longer accessed or used after calling this function, as the memory is deallocated.
+---
+
+---
+# Task 4: Check if Node is a Leaf
+================================================
+
+## Objective
+The objective of this task is to implement a function that checks whether a given node in a binary tree is a leaf. A leaf node is defined as a node that has no left or right children.
+
+## Function Signature
+```c
+int binary_tree_is_leaf(const binary_tree_t *node);
+```
+
+## Parameters
+- `node`: A pointer to the node to check.
+
+## Return Value
+- Returns 1 if the node is a leaf (has no left or right children).
+- Returns 0 otherwise.
+- If the input node is NULL, the function also returns 0.
+
+## Example Usage
+```c
+binary_tree_t *root;
+
+root = binary_tree_node(NULL, 98);
+root->left = binary_tree_node(root, 12);
+root->right = binary_tree_node(root, 402);
+binary_tree_insert_right(root->left, 54);
+binary_tree_insert_right(root, 128);
+
+int is_leaf = binary_tree_is_leaf(root);
+// is_leaf will be 0 since root is not a leaf
+
+is_leaf = binary_tree_is_leaf(root->right);
+// is_leaf will be 0 since root->right is not a leaf
+
+is_leaf = binary_tree_is_leaf(root->right->right);
+// is_leaf will be 1 since root->right->right is a leaf
+```
+
+## Explanation
+This example demonstrates the usage of the `binary_tree_is_leaf` function to check if specific nodes in a binary tree are leaves. The function returns 1 if a node is a leaf (has no left or right children) and 0 otherwise. If the input node is NULL, the function also returns 0.
+
+## Notes
+- The function is useful for determining whether a given node is a leaf in a binary tree.
+- It is important to check for NULL input nodes to avoid undefined behavior.
+- The resulting value can be used in conditional statements or as needed in the context of the binary tree operations.
+---
+
+---
 
