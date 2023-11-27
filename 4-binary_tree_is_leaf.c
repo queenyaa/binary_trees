@@ -12,5 +12,5 @@ int binary_tree_is_leaf(const binary_tree_t *node)
 		return (0);
 
 	/* Check if the node has no children (leaf) */
-	return (node->lect == NULL && node->right == NULL);
+	return (node->left == NULL && node->right == NULL);
 }

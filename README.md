@@ -244,4 +244,232 @@ This example demonstrates the usage of the `binary_tree_is_leaf` function to che
 ---
 
 ---
+# Task 5: Check if Node is a Root
+=========================================
+
+## Objective
+The objective of this task is to implement a function that checks whether a given node in a binary tree is a root. A root node is defined as a node that has no parent.
+
+## Function Signature
+```c
+int binary_tree_is_root(const binary_tree_t *node);
+```
+
+## Parameters
+- `node`: A pointer to the node to check.
+
+## Return Value
+- Returns 1 if the node is a root (has no parent).
+- Returns 0 otherwise.
+- If the input node is NULL, the function also returns 0.
+
+## Example Usage
+```c
+binary_tree_t *root;
+
+root = binary_tree_node(NULL, 98);
+root->left = binary_tree_node(root, 12);
+root->right = binary_tree_node(root, 402);
+binary_tree_insert_right(root->left, 54);
+binary_tree_insert_right(root, 128);
+
+int is_root = binary_tree_is_root(root);
+// is_root will be 1 since root is a root node
+
+is_root = binary_tree_is_root(root->right);
+// is_root will be 0 since root->right is not a root node
+
+is_root = binary_tree_is_root(root->right->right);
+// is_root will be 0 since root->right->right is not a root node
+```
+
+## Explanation
+This example demonstrates the usage of the `binary_tree_is_root` function to check if specific nodes in a binary tree are root nodes. The function returns 1 if a node is a root (has no parent) and 0 otherwise. If the input node is NULL, the function also returns 0.
+
+## Notes
+- The function is useful for determining whether a given node is a root in a binary tree.
+- It is important to check for NULL input nodes to avoid undefined behavior.
+- The resulting value can be used in conditional statements or as needed in the context of the binary tree operations.
+---
+
+---
+# Task 6: Pre-order Traversal of Binary Tree
+=================================================
+## Objective
+The objective of this task is to implement a function that performs a pre-order traversal of a binary tree. Pre-order traversal involves visiting the current node before its left and right subtrees.
+
+## Function Signature
+```c
+void binary_tree_preorder(const binary_tree_t *tree, void (*func)(int));
+```
+
+## Parameters
+- `tree`: Pointer to the root node of the tree to traverse.
+- `func`: Pointer to a function to call for each node. The value in the node must be passed as a parameter to this function.
+
+## Behavior
+- If `tree` or `func` is NULL, the function does nothing.
+
+## Example Usage
+```c
+binary_tree_t *root;
+
+root = binary_tree_node(NULL, 98);
+root->left = binary_tree_node(root, 12);
+root->right = binary_tree_node(root, 402);
+root->left->left = binary_tree_node(root->left, 6);
+root->left->right = binary_tree_node(root->left, 56);
+root->right->left = binary_tree_node(root->right, 256);
+root->right->right = binary_tree_node(root->right, 512);
+
+binary_tree_preorder(root, &print_num);
+```
+
+## Explanation
+This example demonstrates the usage of the `binary_tree_preorder` function to perform a pre-order traversal of a binary tree. The function calls a specified function for each node, following the order: current node, left subtree, right subtree. In this example, the `print_num` function is used to print the values of each visited node.
+
+## Notes
+- The function is useful for processing nodes in a specific order in a binary tree.
+- It is important to check for NULL input nodes and function pointers to avoid undefined behavior.
+- The resulting order of traversal can be utilized as needed in the context of binary tree operations.
+---
+
+---
+# Task 7: In-order Traversal of Binary Tree
+=========================================================
+
+## Objective
+The objective of this task is to implement a function that performs an in-order traversal of a binary tree. In-order traversal involves visiting the left subtree, followed by the current node, and then the right subtree.
+
+## Function Signature
+```c
+void binary_tree_inorder(const binary_tree_t *tree, void (*func)(int));
+```
+
+## Parameters
+- `tree`: Pointer to the root node of the tree to traverse.
+- `func`: Pointer to a function to call for each node. The value in the node must be passed as a parameter to this function.
+
+## Behavior
+- If `tree` or `func` is NULL, the function does nothing.
+
+## Example Usage
+```c
+binary_tree_t *root;
+
+root = binary_tree_node(NULL, 98);
+root->left = binary_tree_node(root, 12);
+root->right = binary_tree_node(root, 402);
+root->left->left = binary_tree_node(root->left, 6);
+root->left->right = binary_tree_node(root->left, 56);
+root->right->left = binary_tree_node(root->right, 256);
+root->right->right = binary_tree_node(root->right, 512);
+
+binary_tree_inorder(root, &print_num);
+```
+
+## Explanation
+This example demonstrates the usage of the `binary_tree_inorder` function to perform an in-order traversal of a binary tree. The function calls a specified function for each node, following the order: left subtree, current node, right subtree. In this example, the `print_num` function is used to print the values of each visited node.
+
+## Notes
+- The function is useful for processing nodes in a specific order in a binary tree.
+- It is important to check for NULL input nodes and function pointers to avoid undefined behavior.
+- The resulting order of traversal can be utilized as needed in the context of binary tree operations.
+---
+
+---
+# Task 8: Post-order Traversal of Binary Tree
+=========================================================
+
+## Objective
+The objective of this task is to implement a function that performs a post-order traversal of a binary tree. Post-order traversal involves visiting the left subtree, the right subtree, and finally the current node.
+
+## Function Signature
+```c
+void binary_tree_postorder(const binary_tree_t *tree, void (*func)(int));
+```
+
+## Parameters
+- `tree`: Pointer to the root node of the tree to traverse.
+- `func`: Pointer to a function to call for each node. The value in the node must be passed as a parameter to this function.
+
+## Behavior
+- If `tree` or `func` is NULL, the function does nothing.
+
+## Example Usage
+```c
+binary_tree_t *root;
+
+root = binary_tree_node(NULL, 98);
+root->left = binary_tree_node(root, 12);
+root->right = binary_tree_node(root, 402);
+root->left->left = binary_tree_node(root->left, 6);
+root->left->right = binary_tree_node(root->left, 56);
+root->right->left = binary_tree_node(root->right, 256);
+root->right->right = binary_tree_node(root->right, 512);
+
+binary_tree_postorder(root, &print_num);
+```
+
+## Explanation
+This example demonstrates the usage of the `binary_tree_postorder` function to perform a post-order traversal of a binary tree. The function calls a specified function for each node, following the order: left subtree, right subtree, current node. In this example, the `print_num` function is used to print the values of each visited node.
+
+## Notes
+- The function is useful for processing nodes in a specific order in a binary tree.
+- It is important to check for NULL input nodes and function pointers to avoid undefined behavior.
+- The resulting order of traversal can be utilized as needed in the context of binary tree operations.
+---
+
+---
+# Task 9: Measure Height of Binary Tree
+====================================================
+
+## Objective
+The objective of this task is to implement a function that measures the height of a binary tree.
+
+## Function Signature
+```c
+size_t binary_tree_height(const binary_tree_t *tree);
+```
+
+## Parameters
+- `tree`: Pointer to the root node of the tree to measure the height.
+
+## Return
+- If `tree` is NULL, the function returns 0.
+
+## Overview
+The `binary_tree_height` function calculates the height of a binary tree, which represents the length of the longest path from the root node to a leaf. The function returns 0 if the tree is empty (NULL).
+
+## Example Usage
+```c
+binary_tree_t *root;
+size_t height;
+
+root = binary_tree_node(NULL, 98);
+root->left = binary_tree_node(root, 12);
+root->right = binary_tree_node(root, 402);
+binary_tree_insert_right(root->left, 54);
+binary_tree_insert_right(root, 128);
+binary_tree_print(root);
+
+height = binary_tree_height(root);
+printf("Height from %d: %lu\n", root->n, height);
+height = binary_tree_height(root->right);
+printf("Height from %d: %lu\n", root->right->n, height);
+height = binary_tree_height(root->left->right);
+printf("Height from %d: %lu\n", root->left->right->n, height);
+```
+
+## Explanation
+This example demonstrates the usage of the `binary_tree_height` function to measure the height of a binary tree. The height is the length of the longest path from the root node to a leaf. The function returns 0 if the tree is empty (NULL). The provided `main` function prints the height from various nodes in the binary tree.
+
+## Notes
+- The height of an empty tree is 0.
+- The height of a tree with only the root node is 1.
+- The height is calculated as the length of the longest path to a leaf, including the root node.
+- The function provides valuable information about the structure and balance of the binary tree.
+---
+
+---
 
