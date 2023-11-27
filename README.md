@@ -472,4 +472,70 @@ This example demonstrates the usage of the `binary_tree_height` function to meas
 ---
 
 ---
+# Task 10: Binary Tree Depth
+==============================================
+
+The goal of this task is to implement a function that measures the depth of a given node in a binary tree. The depth of a node is defined as the number of edges on the path from the node to the root of the tree. The function should return 0 if the provided node is NULL.
+
+## Function Signature
+
+```c
+size_t binary_tree_depth(const binary_tree_t *tree);
+```
+
+### Parameters
+
+- `tree`: A pointer to the node for which the depth needs to be measured.
+
+### Return Value
+
+- The function should return the depth of the node.
+
+## Example
+
+```c
+#include <stdlib.h>
+#include <stdio.h>
+#include "binary_trees.h"
+
+int main(void)
+{
+    binary_tree_t *root;
+    size_t depth;
+
+    // Create a sample binary tree
+    root = binary_tree_node(NULL, 98);
+    root->left = binary_tree_node(root, 12);
+    root->right = binary_tree_node(root, 402);
+    binary_tree_insert_right(root->left, 54);
+    binary_tree_insert_right(root, 128);
+    binary_tree_print(root);
+
+    // Measure the depth of different nodes
+    depth = binary_tree_depth(root);
+    printf("Depth of %d: %lu\n", root->n, depth);
+    depth = binary_tree_depth(root->right);
+    printf("Depth of %d: %lu\n", root->right->n, depth);
+    depth = binary_tree_depth(root->left->right);
+    printf("Depth of %d: %lu\n", root->left->right->n, depth);
+
+    return (0);
+}
+```
+
+Expected Output:
+
+```
+  .-------(098)--.
+(012)--.       (128)--.
+     (054)          (402)
+Depth of 98: 0
+Depth of 128: 1
+Depth of 54: 2
+```
+
+Note: The depth is measured in terms of edges, so the depth of the root is 0.
+---
+
+---
 
