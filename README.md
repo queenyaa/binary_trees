@@ -1164,4 +1164,107 @@ For example usage and expected outputs, refer to the provided test cases in the 
 ---
 
 ---
+# Task 25: Binary Search Tree Insertion
+===========================================
+
+## Objective
+The objective of this task is to implement a function `bst_insert` that inserts a value into a Binary Search Tree (BST).
+
+## Function Signature
+```c
+bst_t *bst_insert(bst_t **tree, int value);
+```
+
+## Parameters
+- `tree`: Double pointer to the root node of the BST.
+- `value`: Value to store in the node to be inserted.
+
+## Return Value
+- Returns a pointer to the created node.
+- Returns NULL on failure.
+- If the address stored in `tree` is NULL, the created node becomes the root node.
+
+## Requirements
+- The function should adhere to the specified prototypes and requirements mentioned in the task description.
+- The binary tree must maintain the properties of a Binary Search Tree.
+  - The left subtree of a node contains only nodes with values less than the node’s value.
+  - The right subtree of a node contains only nodes with values greater than the node’s value.
+  - The left and right subtrees must also be a binary search tree.
+  - There must be no duplicate values.
+
+## Examples
+For example usage and expected outputs, refer to the provided test cases in the main function.
+
+## Notes
+- A Binary Search Tree is a binary tree with the property that each node's value is greater than or equal to all the values in the left subtree and less than or equal to all the values in the right subtree.
+
+## Files
+- Ensure that the function is correctly implemented in the designated source file.
+- Provide a README.md file at the root of the project folder with information about the task, function, and any additional details deemed necessary.
+
+## Testing
+- The provided main.c file contains test cases to validate the correctness of the implemented function.
+- Compile the code using the specified options and test the program with the given examples.
+- Verify that the function works as expected and produces the correct output for various scenarios.
+
+## Submission
+- Submit the source code file containing the implementation of the `bst_insert` function.
+- Ensure that the code adheres to the specified requirements and is well-documented.
+- Include the necessary header file with the function prototype.
+- Do not include the main.c file in the submission.
+- Ensure that the README.md file provides clear and concise information about the task and the implemented function.
+---
+
+---
+# Task 26: Binary Search Tree from Array
+=========================================
+
+## Objective
+The objective of this task is to implement a function `array_to_bst` that builds a Binary Search Tree (BST) from an array of integers.
+
+## Function Signature
+```c
+bst_t *array_to_bst(int *array, size_t size);
+```
+
+## Parameters
+- `array`: Pointer to the first element of the array to be converted.
+- `size`: Number of elements in the array.
+
+## Return Value
+- Returns a pointer to the root node of the created BST.
+- Returns NULL on failure.
+
+## Requirements
+- The function should adhere to the specified prototypes and requirements mentioned in the task description.
+- The binary tree must maintain the properties of a Binary Search Tree.
+  - The left subtree of a node contains only nodes with values less than the node’s value.
+  - The right subtree of a node contains only nodes with values greater than the node’s value.
+  - The left and right subtrees must also be a binary search tree.
+  - There must be no duplicate values.
+
+## Examples
+For example usage and expected outputs, refer to the provided test cases in the main function.
+
+## Notes
+- A Binary Search Tree is a binary tree with the property that each node's value is greater than or equal to all the values in the left subtree and less than or equal to all the values in the right subtree.
+
+## Files
+- Ensure that the function is correctly implemented in the designated source file.
+- Provide a README.md file at the root of the project folder with information about the task, function, and any additional details deemed necessary.
+
+## Testing
+- The provided main.c file contains test cases to validate the correctness of the implemented function.
+- Compile the code using the specified options and test the program with the given examples.
+- Verify that the function works as expected and produces the correct output for various scenarios.
+
+## Submission
+- Submit the source code file containing the implementation of the `array_to_bst` function.
+- Ensure that the code adheres to the specified requirements and is well-documented.
+- Include the necessary header file with the function prototype.
+- Do not include the main.c file in the submission.
+- Ensure that the README.md file provides clear and concise information about the task and the implemented function.
+---
+
+---
 
