@@ -916,4 +916,64 @@ This function provides a convenient way to find the lowest common ancestor of tw
 ---
 
 ---
+# Task 20: Levelorder
+========================================
+## Description
+The `binary_tree_levelorder` function traverses a binary tree using level-order traversal, also known as breadth-first traversal. It visits each level of the tree from left to right, starting from the root. At each level, it calls a provided function (`func`) with the value of each node.
+
+## Prototype
+```c
+void binary_tree_levelorder(const binary_tree_t *tree, void (*func)(int));
+```
+
+## Parameters
+- `tree`: A pointer to the root node of the binary tree to traverse.
+- `func`: A pointer to a function that takes an integer parameter. This function will be called for each node, passing the value of the node as an argument.
+
+## Usage
+```c
+#include "binary_trees.h"
+
+void print_num(int n)
+{
+    printf("%d\n", n);
+}
+
+int main(void)
+{
+    binary_tree_t *root = binary_tree_node(NULL, 98);
+    // Create and configure the binary tree
+
+    binary_tree_levelorder(root, &print_num);
+    // Call the binary_tree_levelorder function with the provided print_num function
+
+    // Remember to free the memory allocated for the binary tree
+    binary_tree_delete(root);
+
+    return (0);
+}
+```
+
+## Considerations
+- The provided function `func` should be able to handle an integer parameter.
+- If either `tree` or `func` is `NULL`, the function does nothing.
+- Ensure proper memory management (e.g., freeing memory) after using the function.
+
+## Example
+```c
+binary_tree_t *root = binary_tree_node(NULL, 98);
+// Create and configure the binary tree
+
+binary_tree_levelorder(root, &print_num);
+// Output:
+// 98
+
+// ... Continue adding nodes to the binary tree and calling binary_tree_levelorder
+
+// Remember to free the memory allocated for the binary tree
+binary_tree_delete(root);
+```
+---
+
+---
 

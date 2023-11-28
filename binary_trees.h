@@ -34,6 +34,29 @@ typedef struct binary_tree_s avl_t;
 /* Max Binary Heap */
 typedef struct binary_tree_s heap_t;
 
+/* the queue node */
+/**
+ * struct queue_node - structure for a node in the queue
+ * @data: data of the node
+ * @node: pointer to the next node
+ */
+typedef struct queue_node
+{
+	const binary_tree_t *data;
+	struct queue_node *next;
+} queue_node_t;
+
+/**
+ * struct queue - structure for the queue
+ * @front: front of the queue
+ * @rear: rear of the queue
+ */
+typedef struct queue
+{
+	queue_node_t *front;
+	queue_node_t *rear;
+} queue_t;
+
 /* functions */
 binary_tree_t *binary_tree_node(binary_tree_t *parent, int value);
 void binary_tree_print(const binary_tree_t *);
@@ -60,6 +83,10 @@ binary_tree_t *binary_tree_sibling(binary_tree_t *node);
 binary_tree_t *binary_tree_uncle(binary_tree_t *node);
 binary_tree_t *binary_trees_ancestor(
 		const binary_tree_t *first, const binary_tree_t *second);
+void binary_tree_levelorder(const binary_tree_t *tree, void (*func)(int));
+void enqueue(queue_t **queue, const binary_tree_t *data);
+const binary_tree_t *dequeue(queue_t **queue);
+void free_queue(queue_t **queue);
 
 
 #endif /* BINARY_TREES_H */
