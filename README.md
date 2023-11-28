@@ -672,4 +672,57 @@ This function is useful for assessing the balance of a binary tree, which is ess
 ---
 
 ---
+## Task 15: Binary Tree Is Full
+=================================================
+
+The goal of this task is to create a function `binary_tree_is_full` that checks whether a given binary tree is full or not.
+
+A full binary tree is a tree in which every node has either 0 or 2 children. In other words, every node must either have no children (be a leaf) or have two children. If any node has only one child, the tree is not considered full.
+
+The function takes a pointer to the root node of the binary tree as its parameter. If the tree is full, the function returns 1; otherwise, it returns 0. If the tree is empty (i.e., the root node is NULL), the function also returns 0.
+
+Example:
+```c
+binary_tree_t *root = binary_tree_node(NULL, 98);
+root->left = binary_tree_node(root, 12);
+root->right = binary_tree_node(root, 402);
+binary_tree_insert_right(root->left, 54);
+binary_tree_insert_right(root, 128);
+root->left->left = binary_tree_node(root->left, 10);
+
+int is_full = binary_tree_is_full(root);
+printf("Is the tree full? %d\n", is_full);
+```
+
+In this example, the tree is not full since the node with the value 12 has only one child. The function will return 0 in this case.
+---
+
+---
+## Task 16: Binary Tree Is Perfect
+=========================================
+
+The objective of this task is to create a function `binary_tree_is_perfect` that checks whether a given binary tree is perfect or not.
+
+A perfect binary tree is a binary tree in which all leaf nodes are at the same level, and every non-leaf node has exactly two children. In other words, a perfect binary tree is both full and balanced.
+
+The function takes a pointer to the root node of the binary tree as its parameter. If the tree is perfect, the function returns 1; otherwise, it returns 0. If the tree is empty (i.e., the root node is NULL), the function also returns 0.
+
+Example:
+```c
+binary_tree_t *root = binary_tree_node(NULL, 98);
+root->left = binary_tree_node(root, 12);
+root->right = binary_tree_node(root, 402);
+binary_tree_insert_right(root->left, 54);
+binary_tree_insert_right(root, 128);
+root->left->left = binary_tree_node(root->left, 10);
+root->right->left = binary_tree_node(root->right, 10);
+
+int is_perfect = binary_tree_is_perfect(root);
+printf("Is the tree perfect? %d\n", is_perfect);
+```
+
+In this example, the tree is perfect since all leaf nodes are at the same level, and every non-leaf node has exactly two children. The function will return 1 in this case.
+---
+
+---
 
