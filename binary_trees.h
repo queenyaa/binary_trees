@@ -17,10 +17,11 @@
  */
 struct binary_tree_s
 {
-    int n;
-    struct binary_tree_s *parent;
-    struct binary_tree_s *left;
-    struct binary_tree_s *right;
+	int n;
+	int height;
+	struct binary_tree_s *parent;
+	struct binary_tree_s *left;
+	struct binary_tree_s *right;
 };
 
 typedef struct binary_tree_s binary_tree_t;
@@ -101,6 +102,7 @@ bst_t *find_successor(bst_t *node);
 size_t max(size_t a, size_t b);
 size_t height(const binary_tree_t *tree);
 int binary_tree_is_avl(const binary_tree_t *tree);
+avl_t *avl_insert(avl_t **tree, int value);
 
 
 #endif /* BINARY_TREES_H */
