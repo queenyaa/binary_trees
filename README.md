@@ -538,4 +538,138 @@ Note: The depth is measured in terms of edges, so the depth of the root is 0.
 ---
 
 ---
+# Task 12: Counting leaves in a Binary tree
+==============================================
+
+The goal of this task is to create a function called `binary_tree_leaves` that counts the number of leaves in a binary tree. A leaf is a node that has no children, i.e., both its left and right pointers are NULL. The function takes a pointer to the root node of the tree as its parameter and returns the count of leaves in the tree.
+
+### Function Signature
+```c
+size_t binary_tree_leaves(const binary_tree_t *tree);
+```
+
+### Parameters
+- `tree`: A pointer to the root node of the binary tree.
+
+### Return Value
+- The function returns the number of leaves in the binary tree.
+- If the tree is NULL, the function returns 0.
+
+### Example
+```c
+binary_tree_t *root;
+
+root = binary_tree_node(NULL, 98);
+root->left = binary_tree_node(root, 12);
+root->right = binary_tree_node(root, 402);
+binary_tree_insert_right(root->left, 54);
+binary_tree_insert_right(root, 128);
+binary_tree_print(root);
+
+size_t leaves = binary_tree_leaves(root);
+printf("Leaves in %d: %lu\n", root->n, leaves);
+```
+
+This example creates a binary tree and then calls `binary_tree_leaves` to count the number of leaves in the tree. The result is printed to the console.
+---
+
+---
+### Task 13 Readme: Binary Tree Nodes Count
+==============================================
+
+In this task, the objective is to write a function `binary_tree_nodes` that counts the number of nodes in a binary tree that have at least one child. A node with a child is a non-leaf node. The prototype for the function is as follows:
+
+```c
+size_t binary_tree_nodes(const binary_tree_t *tree);
+```
+
+#### Input
+
+- `tree`: A pointer to the root node of the binary tree.
+
+#### Output
+
+The function returns the number of nodes in the binary tree that have at least one child. If the input tree is NULL, the function returns 0.
+
+#### Example
+
+Given a binary tree:
+
+```
+       .-------(098)--.
+  .--(012)--.         .--(128)--.
+(054)     (NULL)      (NULL)     (NULL)
+```
+
+The function `binary_tree_nodes` would return 1, as the root node (98) has one child (12).
+
+```c
+size_t nodes = binary_tree_nodes(root);
+// nodes is now 1
+```
+
+#### Edge Case
+
+If the input binary tree is NULL, the function returns 0.
+
+```c
+size_t nodes = binary_tree_nodes(NULL);
+// nodes is 0
+```
+
+This function provides a way to count the number of non-leaf nodes in a binary tree, providing insight into the structure and complexity of the tree.
+---
+
+---
+### Task 14 Readme: Binary Tree Balance Factor
+===============================================
+
+The task involves implementing a function `binary_tree_balance` that measures the balance factor of a binary tree. The balance factor of a binary tree is the difference between the heights of its left and right subtrees. The prototype for the function is as follows:
+
+```c
+int binary_tree_balance(const binary_tree_t *tree);
+```
+
+#### Input
+
+- `tree`: A pointer to the root node of the binary tree.
+
+#### Output
+
+The function returns an integer representing the balance factor of the binary tree. If the input tree is NULL, the function returns 0.
+
+#### Example
+
+Given the following binary tree:
+
+```
+                      .-------(098)--.
+            .-------(045)--.       (128)--.
+       .--(012)--.       (050)          (402)
+  .--(010)     (054)
+(008)
+```
+
+The function `binary_tree_balance` would return:
+
+```c
+int balance = binary_tree_balance(root);
+// balance is now +2
+```
+
+This indicates that the binary tree is unbalanced, with a positive balance factor, as the left subtree is taller than the right subtree.
+
+#### Edge Case
+
+If the input binary tree is NULL, the function returns 0.
+
+```c
+int balance = binary_tree_balance(NULL);
+// balance is 0
+```
+
+This function is useful for assessing the balance of a binary tree, which is essential for maintaining efficient search and insertion operations in the tree.
+---
+
+---
 
