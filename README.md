@@ -976,4 +976,96 @@ binary_tree_delete(root);
 ---
 
 ---
+# Task 21: Binary Tree Completeness Check
+===========================================
+
+## Objective
+The objective of this task is to implement a function `binary_tree_is_complete` that checks whether a given binary tree is complete or not.
+
+## Function Signature
+```c
+int binary_tree_is_complete(const binary_tree_t *tree);
+```
+
+## Parameters
+- `tree`: Pointer to the root node of the binary tree to be checked.
+
+## Return Value
+- Returns 1 if the binary tree is complete.
+- Returns 0 otherwise.
+
+## Requirements
+- The function should adhere to the specified prototypes and requirements mentioned in the task description.
+- Use the provided data structures and types for binary trees.
+- The implementation should consider the completeness of the binary tree.
+
+## Examples
+For example usage and expected outputs, refer to the provided test cases in the main function.
+
+## Notes
+- A complete binary tree is a binary tree in which every level, except possibly the last, is completely filled, and all nodes are as left as possible.
+
+## Files
+- Ensure that the function is correctly implemented in the designated source file.
+- Provide a README.md file at the root of the project folder with information about the task, function, and any additional details deemed necessary.
+
+## Testing
+- The provided main.c file contains test cases to validate the correctness of the implemented function.
+- Compile the code using the specified options and test the program with the given examples.
+- Verify that the function works as expected and produces the correct output for various scenarios.
+
+## Submission
+- Submit the source code file containing the implementation of the `binary_tree_is_complete` function.
+- Ensure that the code adheres to the specified requirements and is well-documented.
+- Include the necessary header file with the function prototype.
+- Do not include the main.c file in the submission.
+- Ensure that the README.md file provides clear and concise information about the task and the implemented function.
+---
+
+---
+# Task 22: Binary Tree Left Rotation
+==================================================
+
+## Objective
+The objective of this task is to implement a function `binary_tree_rotate_left` that performs a left rotation on a binary tree.
+
+## Function Signature
+```c
+binary_tree_t *binary_tree_rotate_left(binary_tree_t *tree);
+```
+
+## Parameters
+- `tree`: Pointer to the root node of the binary tree to be rotated.
+
+## Return Value
+- Returns a pointer to the new root node of the tree after the left rotation.
+
+## Requirements
+- The function should adhere to the specified prototypes and requirements mentioned in the task description.
+- The left rotation should be performed while maintaining the binary tree properties.
+
+## Examples
+For example usage and expected outputs, refer to the provided test cases in the main function.
+
+## Notes
+- A left rotation on a binary tree is an operation that preserves the binary search tree properties and performs a leftward rotation of the nodes.
+
+## Files
+- Ensure that the function is correctly implemented in the designated source file.
+- Provide a README.md file at the root of the project folder with information about the task, function, and any additional details deemed necessary.
+
+## Testing
+- The provided main.c file contains test cases to validate the correctness of the implemented function.
+- Compile the code using the specified options and test the program with the given examples.
+- Verify that the function works as expected and produces the correct output for various scenarios.
+
+## Submission
+- Submit the source code file containing the implementation of the `binary_tree_rotate_left` function.
+- Ensure that the code adheres to the specified requirements and is well-documented.
+- Include the necessary header file with the function prototype.
+- Do not include the main.c file in the submission.
+- Ensure that the README.md file provides clear and concise information about the task and the implemented function.
+---
+
+---
 
