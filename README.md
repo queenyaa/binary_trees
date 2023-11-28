@@ -1267,4 +1267,136 @@ For example usage and expected outputs, refer to the provided test cases in the 
 ---
 
 ---
+# Task 27: Binary Search Tree Search
+====================================
+
+## Objective
+The objective of this task is to implement a function `bst_search` that searches for a value in a Binary Search Tree (BST).
+
+## Function Signature
+```c
+bst_t *bst_search(const bst_t *tree, int value);
+```
+
+## Parameters
+- `tree`: Pointer to the root node of the BST to search.
+- `value`: Value to search for in the tree.
+
+## Return Value
+- Returns a pointer to the node containing a value equal to `value`.
+- Returns NULL if the value is not found or if `tree` is NULL.
+
+## Requirements
+- The function should adhere to the specified prototypes and requirements mentioned in the task description.
+- The binary tree must maintain the properties of a Binary Search Tree.
+  - The left subtree of a node contains only nodes with values less than the node’s value.
+  - The right subtree of a node contains only nodes with values greater than the node’s value.
+  - The left and right subtrees must also be a binary search tree.
+  - There must be no duplicate values.
+
+## Examples
+For example usage and expected outputs, refer to the provided test cases in the main function.
+
+## Notes
+- A Binary Search Tree is a binary tree with the property that each node's value is greater than or equal to all the values in the left subtree and less than or equal to all the values in the right subtree.
+
+## Files
+- Ensure that the function is correctly implemented in the designated source file.
+- Provide a README.md file at the root of the project folder with information about the task, function, and any additional details deemed necessary.
+
+## Testing
+- The provided main.c file contains test cases to validate the correctness of the implemented function.
+- Compile the code using the specified options and test the program with the given examples.
+- Verify that the function works as expected and produces the correct output for various scenarios.
+
+## Submission
+- Submit the source code file containing the implementation of the `bst_search` function.
+- Ensure that the code adheres to the specified requirements and is well-documented.
+- Include the necessary header file with the function prototype.
+- Do not include the main.c file in the submission.
+- Ensure that the README.md file provides clear and concise information about the task and the implemented function.
+---
+
+---
+# Task 28: Binary Search Tree Removal
+======================================
+
+## Description
+The goal of this task is to implement a function `bst_remove` that removes a node with a specified value from a Binary Search Tree (BST). The BST is a binary tree where the left subtree of a node contains only nodes with values less than the node's value, and the right subtree contains only nodes with values greater than the node's value. The `bst_remove` function follows the rules of removing a node from a BST while maintaining its structure.
+
+## Function Signature
+```c
+bst_t *bst_remove(bst_t *root, int value);
+```
+
+### Parameters
+- `root`: Pointer to the root node of the BST where the node will be removed.
+- `value`: The value to remove from the tree.
+
+### Return
+- The function returns a pointer to the new root node of the tree after removing the specified value.
+
+## Implementation
+The implementation follows the standard rules for removing a node from a BST:
+- If the value to be removed is less than the current node's value, the left subtree is recursively searched.
+- If the value is greater, the right subtree is recursively searched.
+- If the value is found, the node is removed according to the following cases:
+  - If the node has no children or only one child, it is removed directly.
+  - If the node has two children, the in-order successor (smallest in the right subtree) is found, and its data is copied to the current node. Then, the in-order successor is recursively removed.
+
+## Usage
+The provided `114-main.c` file contains a sample program demonstrating the usage of the `bst_remove` function. The BST is created from an array of values, and nodes are removed one by one using the `bst_remove` function. The resulting BST is printed after each removal to verify the correctness of the removal process.
+
+## Testing
+The provided test case uses the `binary_tree_print` function to visualize the structure of the BST before and after each removal. Additionally, the program utilizes Valgrind to check for memory leaks, ensuring the correct deallocation of memory.
+
+## Compilation
+To compile the program, the following command can be used:
+```bash
+gcc -Wall -Wextra -Werror -pedantic binary_tree_print.c 114-bst_remove.c 114-main.c 112-array_to_bst.c 111-bst_insert.c 0-binary_tree_node.c 3-binary_tree_delete.c -o 114-bst_rm
+```
+
+## Execution
+To execute the compiled program, use the following command:
+```bash
+./114-bst_rm
+```
+
+The program will display the initial and modified BST structures after each removal, and Valgrind can be used to ensure there are no memory leaks.
+
+## Expected Output
+The expected output includes the visualization of the BST structure before and after each removal, along with a confirmation of successful memory deallocation.
+
+```plaintext
+                                     .------------(079)-------.
+                 .-----------------(047)-------.         .--(087)--.
+       .-------(021)-------.              .--(068)     (084)     (091)-------.
+  .--(002)--.         .--(032)--.       (062)                           .--(098)
+(001)     (020)     (022)     (034)                                   (095)
+Removed 79...
+                                     .------------(084)--.
+                 .-----------------(047)-------.       (087)--.
+       .-------(022)--.              .--(068)          (091)-------.
+  .--(002)--.       .--(032)--.       (062)                      .--(098)
+(001)     (020)     (034)          (095)
+Removed 21...
+                                .------------(084)--.
+                 .------------(047)--.       (087)--.
+       .-------(022)--.            (062)          (091)-------.
+  .--(002)--.       (032)--.                             .--(098)
+(001)     (020)     (034)                         (095)
+Removed 68...
+                                .-------(084)--.
+                 .------------(047)--.       (087)--.
+       .-------(022)--.            (062)          (091)-------.
+  .--(002)--.       (032)--.                             .--(098)
+(001)     (020)     (034)                         (095)
+```
+
+The output confirms the successful removal of nodes with the specified values and the maintenance of the BST properties. The memory deallocation is also verified using Valgrind.
+
+**Note:** The actual output may vary based on the specific implementation and the platform/compiler used.
+---
+
+---
 
