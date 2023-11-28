@@ -725,4 +725,75 @@ In this example, the tree is perfect since all leaf nodes are at the same level,
 ---
 
 ---
+# Binary Tree Sibling
+============================================
+
+## Description
+
+The `binary_tree_sibling` function finds the sibling of a given node in a binary tree. If the provided node is `NULL` or its parent is `NULL`, the function returns `NULL`. If the node has no sibling, it also returns `NULL`. The sibling is determined based on the parent-child relationship within the binary tree.
+
+## Prototype
+
+```c
+binary_tree_t *binary_tree_sibling(binary_tree_t *node);
+```
+
+## Parameters
+
+- `node`: A pointer to the node for which you want to find the sibling.
+
+## Return Value
+
+- A pointer to the sibling node if found.
+- `NULL` if the node is `NULL`, its parent is `NULL`, or the node has no sibling.
+
+## Examples
+
+```c
+#include "binary_trees.h"
+
+int main(void)
+{
+    binary_tree_t *root;
+    binary_tree_t *sibling;
+
+    root = binary_tree_node(NULL, 98);
+    root->left = binary_tree_node(root, 12);
+    root->right = binary_tree_node(root, 128);
+    root->left->right = binary_tree_node(root->left, 54);
+    root->right->right = binary_tree_node(root->right, 402);
+
+    binary_tree_print(root);
+    sibling = binary_tree_sibling(root->left);
+    printf("Sibling of %d: %d\n", root->left->n, sibling->n);
+    sibling = binary_tree_sibling(root->right->left);
+    printf("Sibling of %d: %d\n", root->right->left->n, sibling->n);
+    sibling = binary_tree_sibling(root->left->right);
+    printf("Sibling of %d: %d\n", root->left->right->n, sibling->n);
+    sibling = binary_tree_sibling(root);
+    printf("Sibling of %d: %p\n", root->n, (void *)sibling);
+    return (0);
+}
+```
+
+In this example, the `binary_tree_sibling` function is used to find the sibling of different nodes in a binary tree. The output shows the values of the sibling nodes or `(nil)` if no sibling is found.
+
+## Compilation
+
+Your program should be compiled with the following flags:
+
+```bash
+$ gcc -Wall -Wextra -Werror -pedantic binary_tree_print.c 17-main.c 17-binary_tree_sibling.c 0-binary_tree_node.c -o 17-sibling
+```
+
+## Execution
+
+Run the compiled program:
+
+```bash
+$ ./17-sibling
+```
+---
+
+---
 
