@@ -98,6 +98,9 @@ void bst_free(bst_t *tree);
 bst_t *bst_search(const bst_t *tree, int value);
 bst_t *bst_remove(bst_t *root, int value);
 bst_t *find_successor(bst_t *node);
+size_t max(size_t a, size_t b);
+size_t height(const binary_tree_t *tree);
+int binary_tree_is_avl(const binary_tree_t *tree);
 
 
 #endif /* BINARY_TREES_H */

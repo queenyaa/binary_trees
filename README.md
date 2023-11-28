@@ -1399,4 +1399,169 @@ The output confirms the successful removal of nodes with the specified values an
 ---
 
 ---
+# Task 30: Big O of BST
+======================================
+
+The average time complexities for operations on a Binary Search Tree (BST) are as follows:
+
+- **Inserting the value n:**
+  - Average Time Complexity: O(log n)
+  - Explanation: In a well-balanced BST, the height is logarithmic with respect to the number of nodes. Hence, the average time complexity for insertion is O(log n).
+
+- **Removing the node with the value n:**
+  - Average Time Complexity: O(log n)
+  - Explanation: Similar to insertion, the average time complexity for removing a node in a well-balanced BST is O(log n).
+
+- **Searching for a node in a BST of size n:**
+  - Average Time Complexity: O(log n)
+  - Explanation: The average time complexity for searching in a well-balanced BST is also O(log n) because, at each comparison, the search space is reduced by half.
+
+It's important to note that these time complexities assume that the BST is well-balanced. In the worst-case scenario, where the BST is degenerate (essentially a linked list), the time complexities for these operations could degrade to O(n). However, the average-case analysis considers a balanced scenario.
+---
+
+---
+## Task 30 - Binary Tree is AVL
+===========================================
+
+### Objective
+The goal of this task is to determine whether a given binary tree is a valid AVL (Adelson-Velsky and Landis) tree. An AVL tree is a type of self-balancing binary search tree where the difference in heights between the left and right subtrees of any node is at most 1, and both the left and right subtrees are also AVL trees.
+
+### Solution
+To solve this task, we implement the `binary_tree_is_avl` function. This function takes a pointer to the root node of a binary tree and recursively checks if it satisfies the properties of an AVL tree. The key steps include:
+
+1. Calculate the height of the left and right subtrees.
+2. Check if the difference in height is greater than 1; if so, the tree is not AVL.
+3. Recursively check if both the left and right subtrees are AVL trees.
+
+### Example
+```c
+binary_tree_t *root = basic_tree();
+
+binary_tree_print(root);
+int avl = binary_tree_is_avl(root);
+printf("Is %d avl: %d\n", root->n, avl);
+```
+
+In this example, we create a basic binary tree and use the `binary_tree_is_avl` function to check if it is a valid AVL tree. The result is printed, indicating whether the tree satisfies the AVL tree properties.
+
+### Compilation
+```bash
+gcc -Wall -Wextra -Werror -pedantic binary_tree_print.c 120-binary_tree_is_avl.c 0-binary_tree_node.c 120-main.c -o 120-is_avl
+```
+
+### Execution
+```bash
+./120-is_avl
+```
+
+### Expected Output
+```
+       .-------(098)--.
+  .--(012)--.       (128)--.
+(010)     (054)          (402)
+Is 98 avl: 1
+Is 12 avl: 1
+       .-------(098)-------.
+  .--(012)--.         .--(128)--.
+(010)     (054)     (097)     (402)
+Is 98 avl: 0
+       .-------(098)--.
+  .--(012)--.       (128)--.
+(010)     (054)          (402)--.
+                              (430)
+Is 98 avl: 0
+       .-------(098)--.
+  .--(012)--.       (128)--.
+(010)     (054)          (402)-------.
+                                .--(430)
+                              (420)
+Is 98 avl: 0
+```
+
+This demonstrates the functionality of the `binary_tree_is_avl` function in checking the validity of AVL trees.
+---
+
+---
+## Task 31 - AVL Tree Insertion
+========================================
+
+### Objective
+The objective of this task is to implement a function that inserts a value into an AVL (Adelson-Velsky and Landis) Tree while maintaining its balance.
+
+### Solution
+To solve this task, we implement the `avl_insert` function. This function takes a double pointer to the root node of an AVL tree and a value to be inserted. It inserts the value into the AVL tree, ensuring that the resulting tree is a balanced AVL tree. The key steps include:
+
+1. Perform a regular BST (Binary Search Tree) insert.
+2. Update the height of the current node.
+3. Calculate the balance factor of the current node.
+4. Perform the necessary rotations (left, right, left-right, right-left) to restore balance.
+5. Update the height of the affected nodes after rotations.
+
+### Example
+```c
+avl_t *root = NULL;
+avl_t *node;
+
+node = avl_insert(&root, 98);
+printf("Inserted: %d\n", node->n);
+binary_tree_print(root);
+```
+
+In this example, we insert a value into an AVL tree using the `avl_insert` function. The resulting tree is then printed, showcasing the balancing of the AVL tree.
+
+### Compilation
+```bash
+gcc -Wall -Wextra -Werror -pedantic binary_tree_print.c 121-avl_insert.c 121-main.c 14-binary_tree_balance.c 103-binary_tree_rotate_left.c 104-binary_tree_rotate_right.c 0-binary_tree_node.c -o 121-avl_insert
+```
+
+### Execution
+```bash
+./121-avl_insert
+```
+
+### Expected Output
+```
+Inserted: 98
+(098)
+
+Inserted: 402
+(098)--.
+     (402)
+
+Inserted: 12
+  .--(098)--.
+(012)     (402)
+
+Inserted: 46
+  .-------(098)--.
+(012)--.       (402)
+     (046)
+
+Inserted: 128
+  .-------(098)-------.
+(012)--.         .--(402)
+     (046)     (128)
+
+Inserted: 256
+  .-------(098)-------.
+(012)--.         .--(256)--.
+     (046)     (128)     (402)
+
+Inserted: 512
+  .-------(098)-------.
+(012)--.         .--(256)--.
+     (046)     (128)     (402)--.
+                              (512)
+
+Inserted: 50
+       .-------(098)-------.
+  .--(046)--.         .--(256)--.
+(012)     (050)     (128)     (402)--.
+                                   (512)
+```
+
+This demonstrates the functionality of the `avl_insert` function in maintaining the balance of an AVL tree after insertion.
+---
+
+---
 
