@@ -725,7 +725,7 @@ In this example, the tree is perfect since all leaf nodes are at the same level,
 ---
 
 ---
-# Binary Tree Sibling
+# Task 17: Binary Tree Sibling
 ============================================
 
 ## Description
@@ -793,6 +793,126 @@ Run the compiled program:
 ```bash
 $ ./17-sibling
 ```
+---
+
+---
+# Task 18: Binary Tree Uncle
+=============================================
+
+## Description
+
+The `binary_tree_uncle` function finds the uncle of a given node in a binary tree. If the provided node is `NULL`, the function returns `NULL`. If the node has no uncle, it also returns `NULL`. The uncle is determined based on the parent and grandparent relationship within the binary tree.
+
+## Prototype
+
+```c
+binary_tree_t *binary_tree_uncle(binary_tree_t *node);
+```
+
+## Parameters
+
+- `node`: A pointer to the node for which you want to find the uncle.
+
+## Return Value
+
+- A pointer to the uncle node if found.
+- `NULL` if the node is `NULL`, or the node has no uncle.
+
+## Examples
+
+```c
+#include "binary_trees.h"
+
+int main(void)
+{
+    binary_tree_t *root;
+    binary_tree_t *uncle;
+
+    root = binary_tree_node(NULL, 98);
+    root->left = binary_tree_node(root, 12);
+    root->right = binary_tree_node(root, 128);
+    root->left->right = binary_tree_node(root->left, 54);
+    root->right->right = binary_tree_node(root->right, 402);
+
+    binary_tree_print(root);
+    uncle = binary_tree_uncle(root->right->left);
+    printf("Uncle of %d: %d\n", root->right->left->n, uncle->n);
+    uncle = binary_tree_uncle(root->left->right);
+    printf("Uncle of %d: %d\n", root->left->right->n, uncle->n);
+    uncle = binary_tree_uncle(root->left);
+    printf("Uncle of %d: %p\n", root->left->n, (void *)uncle);
+    return (0);
+}
+```
+
+In this example, the `binary_tree_uncle` function is used to find the uncle of different nodes in a binary tree. The output shows the values of the uncle nodes or `(nil)` if no uncle is found.
+
+## Compilation
+
+Your program should be compiled with the following flags:
+
+```bash
+$ gcc -Wall -Wextra -Werror -pedantic binary_tree_print.c 18-main.c 18-binary_tree_uncle.c 0-binary_tree_node.c -o 18-uncle
+```
+
+## Execution
+
+Run the compiled program:
+
+```bash
+$ ./18-uncle
+```
+---
+
+---
+# Task 19: Lowest Common Ancestor
+=====================================
+## Lowest Common Ancestor
+
+The goal of this task is to implement a function that finds the lowest common ancestor of two nodes in a binary tree.
+
+### Function Signature
+```c
+binary_tree_t *binary_trees_ancestor(const binary_tree_t *first, const binary_tree_t *second);
+```
+
+### Parameters
+- `first`: A pointer to the first node.
+- `second`: A pointer to the second node.
+
+### Return
+- A pointer to the lowest common ancestor node of the two given nodes.
+- If no common ancestor is found, the function returns `NULL`.
+
+### Approach
+The function traverses the ancestors of the first node and checks if each ancestor is also an ancestor of the second node. The first common ancestor found during this process is returned as the lowest common ancestor. If no common ancestor is found, the function returns `NULL`.
+
+### Example
+```c
+binary_tree_t *ancestor;
+
+ancestor = binary_trees_ancestor(root->left, root->right);
+// ancestor now points to the lowest common ancestor of root->left and root->right
+```
+
+### Usage
+```c
+#include "binary_trees.h"
+
+int main(void)
+{
+    binary_tree_t *root;
+
+    // Initialize and build the binary tree
+
+    binary_tree_t *ancestor = binary_trees_ancestor(root->left, root->right);
+    // Use ancestor as needed
+
+    return (0);
+}
+```
+
+This function provides a convenient way to find the lowest common ancestor of two nodes in a binary tree, aiding in various tree-related algorithms and applications.
 ---
 
 ---
