@@ -1068,4 +1068,100 @@ For example usage and expected outputs, refer to the provided test cases in the 
 ---
 
 ---
+# Task 23: Binary Tree Right Rotation
+=================================================
+
+## Objective
+The objective of this task is to implement a function `binary_tree_rotate_right` that performs a right rotation on a binary tree.
+
+## Function Signature
+```c
+binary_tree_t *binary_tree_rotate_right(binary_tree_t *tree);
+```
+
+## Parameters
+- `tree`: Pointer to the root node of the binary tree to be rotated.
+
+## Return Value
+- Returns a pointer to the new root node of the tree after the right rotation.
+
+## Requirements
+- The function should adhere to the specified prototypes and requirements mentioned in the task description.
+- The right rotation should be performed while maintaining the binary tree properties.
+
+## Examples
+For example usage and expected outputs, refer to the provided test cases in the main function.
+
+## Notes
+- A right rotation on a binary tree is an operation that preserves the binary search tree properties and performs a rightward rotation of the nodes.
+
+## Files
+- Ensure that the function is correctly implemented in the designated source file.
+- Provide a README.md file at the root of the project folder with information about the task, function, and any additional details deemed necessary.
+
+## Testing
+- The provided main.c file contains test cases to validate the correctness of the implemented function.
+- Compile the code using the specified options and test the program with the given examples.
+- Verify that the function works as expected and produces the correct output for various scenarios.
+
+## Submission
+- Submit the source code file containing the implementation of the `binary_tree_rotate_right` function.
+- Ensure that the code adheres to the specified requirements and is well-documented.
+- Include the necessary header file with the function prototype.
+- Do not include the main.c file in the submission.
+- Ensure that the README.md file provides clear and concise information about the task and the implemented function.
+---
+
+---
+# Task 24: Binary Tree Valid Binary Search Tree Check
+=================================================
+
+## Objective
+The objective of this task is to implement a function `binary_tree_is_bst` that checks whether a given binary tree is a valid Binary Search Tree (BST).
+
+## Function Signature
+```c
+int binary_tree_is_bst(const binary_tree_t *tree);
+```
+
+## Parameters
+- `tree`: Pointer to the root node of the binary tree to be checked.
+
+## Return Value
+- Returns 1 if the tree is a valid BST.
+- Returns 0 otherwise.
+- If tree is NULL, returns 0.
+
+## Requirements
+- The function should adhere to the specified prototypes and requirements mentioned in the task description.
+- The binary tree must satisfy the properties of a Binary Search Tree.
+  - The left subtree of a node contains only nodes with values less than the node’s value.
+  - The right subtree of a node contains only nodes with values greater than the node’s value.
+  - The left and right subtrees must also be a binary search tree.
+  - There must be no duplicate values.
+
+## Examples
+For example usage and expected outputs, refer to the provided test cases in the main function.
+
+## Notes
+- A Binary Search Tree is a binary tree with the property that each node's value is greater than or equal to all the values in the left subtree and less than or equal to all the values in the right subtree.
+
+## Files
+- Ensure that the function is correctly implemented in the designated source file.
+- Provide a README.md file at the root of the project folder with information about the task, function, and any additional details deemed necessary.
+
+## Testing
+- The provided main.c file contains test cases to validate the correctness of the implemented function.
+- Compile the code using the specified options and test the program with the given examples.
+- Verify that the function works as expected and produces the correct output for various scenarios.
+
+## Submission
+- Submit the source code file containing the implementation of the `binary_tree_is_bst` function.
+- Ensure that the code adheres to the specified requirements and is well-documented.
+- Include the necessary header file with the function prototype.
+- Do not include the main.c file in the submission.
+- Ensure that the README.md file provides clear and concise information about the task and the implemented function.
+---
+
+---
 
