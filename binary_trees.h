@@ -104,8 +104,7 @@ size_t height(const binary_tree_t *tree);
 int binary_tree_is_avl(const binary_tree_t *tree);
 avl_t *avl_insert(avl_t **tree, int value);
 avl_t *array_to_avl(int *array, size_t size);
-avl_t *avl_in_recur(avl_t **tree, avl_t *parent,
-               int value);
+avl_t *avl_in_recur(avl_t **tree, avl_t *parent, avl_t **nw, int value);
 int b_lanc(const binary_tree_t *tree);
 size_t h_len(const binary_tree_t *tree);
 int comp_int(const void *a, const void *b);
