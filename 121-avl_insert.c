@@ -38,39 +38,39 @@ int b_lanc(const binary_tree_t *tree)
  * Return: pointer to new root after insertion or NULL on failure
  */
 avl_t *avl_in_recur(avl_t **tree, avl_t *parent,
-		avl_t **nw, int value)
+		int value)
 {
 	int b_fact;
 
 	if (*tree == NULL)
-		return (*nw = binary_tree_node(parent, value));
+		return (binary_tree_node(parent, value));
 
 	if ((*tree)->n > value)
 	{
 		(*tree)->left = avl_in_recur(&(*tree)->left, *tree,
-				nw, value);
+				value);
 		if ((*tree)->left == NULL)
 			return (NULL);
 	}
 	else if ((*tree)->n < value)
 	{
 		(*tree)->right = avl_in_recur(&(*tree)->right, *tree,
-				nw, value);
+				value);
 		if ((*tree)->right == NULL)
 			return (NULL);
 	}
 	else
 		return (*tree);
-	b_fact = b_lanc(*tree);
+	b_fact = binary_tree_balance(*tree);
 	if (b_fact > 1 && (*tree)->left->n > value)
 		*tree = binary_tree_rotate_right(*tree);
-	else if (b_fact < -1 && (*tree)->right->n < value)
-		*tree = binary_tree_rotate_left(*tree);
 	else if (b_fact > 1 && (*tree)->left->n < value)
 	{
 		(*tree)->left = binary_tree_rotate_left((*tree)->left);
 		*tree = binary_tree_rotate_right(*tree);
 	}
+	else if (b_fact < -1 && (*tree)->right->n < value)
+		*tree = binary_tree_rotate_left(*tree);
 	else if (b_fact < -1 && (*tree)->right->n > value)
 	{
 		(*tree)->right = binary_tree_rotate_right((*tree)->right);
@@ -87,15 +87,12 @@ avl_t *avl_in_recur(avl_t **tree, avl_t *parent,
  */
 avl_t *avl_insert(avl_t **tree, int value)
 {
-	avl_t *nw = NULL;
 
-	if (tree == NULL)
-		return (NULL);
 	if (*tree == NULL)
 	{
 		*tree = binary_tree_node(NULL, value);
 		return (*tree);
 	}
-	avl_in_recur(tree, *tree, &nw, value);
-	return (nw);
+
+	return (avl_in_recur(tree, *tree, value));
 }
